@@ -1,0 +1,147 @@
+/* BudgetTipCard.css */
+.budget-tip-card {
+    background: linear-gradient(135deg, #FF9800, #FB8C00);
+    color: white;
+    border-radius: 12px;
+    padding: 25px;
+    box-shadow: 0 8px 25px rgba(255, 152, 0, 0.2);
+    transition: all 0.4s ease;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .budget-tip-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 30px rgba(255, 152, 0, 0.3);
+  }
+  
+  .budget-tip-card h3 {
+    margin: 0 0 20px 0;
+    font-size: 1.4rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+  }
+  
+  .budget-tip-card h3 i {
+    margin-right: 10px;
+    font-size: 1.3rem;
+  }
+  
+  .budget-tip-card ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0 0 25px 0;
+    flex-grow: 1;
+  }
+  
+  .budget-tip-card li {
+    position: relative;
+    padding: 8px 0 8px 30px;
+    margin-bottom: 10px;
+    line-height: 1.4;
+  }
+  
+  .budget-tip-card li::before {
+    content: '•';
+    position: absolute;
+    left: 0;
+    color: white;
+    font-size: 1.5rem;
+    line-height: 1;
+  }
+  
+  .btn-white {
+    background: white;
+    color: #FF9800;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 25px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    align-self: flex-start;
+    margin-top: auto;
+    box-shadow: 0 2px 10px rgba(255, 255, 255, 0.3);
+  }
+  
+  .btn-white:hover {
+    background: rgba(255, 255, 255, 0.9);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(255, 255, 255, 0.4);
+  }
+  
+  /* Budget meter visualization */
+  .budget-meter {
+    width: 100%;
+    height: 8px;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 4px;
+    margin: 15px 0;
+    overflow: hidden;
+  }
+  
+  .budget-progress {
+    height: 100%;
+    background: white;
+    border-radius: 4px;
+    width: 60%; /* Adjust this value based on actual budget percentage */
+    transition: width 0.5s ease;
+  }
+  
+  .budget-range {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.8rem;
+    margin-bottom: 15px;
+  }
+  
+  /* Responsive styles */
+  @media (max-width: 768px) {
+    .budget-tip-card {
+      padding: 20px;
+    }
+    
+    .budget-tip-card h3 {
+      font-size: 1.3rem;
+    }
+    
+    .budget-tip-card li {
+      font-size: 0.95rem;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .budget-tip-card {
+      padding: 15px;
+    }
+    
+    .budget-tip-card h3 {
+      font-size: 1.2rem;
+      margin-bottom: 15px;
+    }
+    
+    .btn-white {
+      padding: 8px 16px;
+      font-size: 0.9rem;
+    }
+  }
+  
+  /* Animation */
+  @keyframes budgetFadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .budget-tip-card {
+    animation: budgetFadeIn 0.6s ease-out forwards;
+    animation-delay: 0.2s;
+    opacity: 0;
+  }  

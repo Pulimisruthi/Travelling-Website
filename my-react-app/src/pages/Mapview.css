@@ -1,0 +1,31 @@
+.india-svg {
+  width: 100%;
+  max-width: 700px;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+  background: #f0f8ff;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+.state-path {
+  fill: #b3d4fc;
+  stroke: #1c3d5a;
+  stroke-width: 2;
+  cursor: pointer;
+  transition:
+    fill 0.25s cubic-bezier(0.4,0,0.2,1),
+    transform 0.25s cubic-bezier(0.4,0,0.2,1),
+    filter 0.25s cubic-bezier(0.4,0,0.2,1);
+}
+
+.state-path:hover {
+  fill: #2563eb;
+  filter: drop-shadow(0 0 12px #2563eb88);
+  transform: scale(1.06) translateY(-8px);
+  transition:
+    fill 0.3s cubic-bezier(0.4,0,0.2,1),
+    transform 0.3s cubic-bezier(0.4,0,0.2,1),
+    filter 0.3s cubic-bezier(0.4,0,0.2,1);
+}
