@@ -5,6 +5,7 @@ import { FaEye, FaEyeSlash, FaLock, FaEnvelope, FaGoogle, FaFacebook } from 'rea
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import './Login.css';
+import Navbar from '../components/NavBar';
 
 const LoginPage = () => {
   const [formData, setFormData] = useState({ email: '', password: '' });
@@ -47,7 +48,9 @@ const LoginPage = () => {
   };
 
   return (
-    <div className="login-container">
+    <>
+       <Navbar/>
+      <div className="login-container">
       <ToastContainer />
       <div className="login-background">
         <div className="bg-image bg-1"></div>
@@ -99,23 +102,13 @@ const LoginPage = () => {
             {isLoading ? <div className="spinner"></div> : 'Login'}
           </button>
 
-          <div className="divider"><span>or continue with</span></div>
-
-          <div className="social-login">
-            <button type="button" className="social-btn google">
-              <FaGoogle className="social-icon" /> Google
-            </button>
-            <button type="button" className="social-btn facebook">
-              <FaFacebook className="social-icon" /> Facebook
-            </button>
-          </div>
-
           <div className="signup-link">
             Don't have an account? <Link to="/Signin">Sign up</Link>
           </div>
         </form>
       </div>
     </div>
+    </>
   );
 };
 

@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 
 import './Wishlist.css';
 
@@ -7,66 +8,38 @@ const Wishlist = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    // Simulate loading wishlist data
     const fetchWishlist = async () => {
       try {
-        // In a real app, you would fetch from your API
-        const mockWishlist = [
-          {
-            _id: '1',
-            name: 'Taj Mahal',
-            location: { city: 'Agra', state: 'Uttar Pradesh' },
-            images: ['https://images.unsplash.com/photo-1564507592333-c60657eea523'],
-            rating: 4.8
+        const response = await axios.get('/api/wishlist', {
+          headers: {
+            'Authorization': `Bearer ${user.token}`,
           },
-          {
-            _id: '2',
-            name: 'Goa Beaches',
-            location: { city: 'Goa', state: 'Goa' },
-            images: ['https://images.unsplash.com/photo-1512343879784-a960bf40e7f2'],
-            rating: 4.5
-          }
-        ];
-        setWishlist(mockWishlist);
+        });
+        setWishlist(response.data.destinations || []);
       } catch (error) {
         console.error('Error fetching wishlist:', error);
-      } finally {
-        setLoading(false);
       }
     };
 
-    fetchWishlist();
-  }, []);
+    if (user) fetchWishlist();
+  }, [user]);
 
   const removeFromWishlist = (id) => {
     setWishlist(wishlist.filter(item => item._id !== id));
   };
 
   return (
-    <div className="wishlist-page">
-      <h1>Your Travel Wishlist</h1>
-      {loading ? (
-        <div className="loading">Loading your wishlist...</div>
-      ) : wishlist.length === 0 ? (
-        <div className="empty-wishlist">
-          <p>Your wishlist is empty</p>
-          <button className="explore-btn">Explore Destinations</button>
-        </div>
-      ) : (
-        <div className="wishlist-grid">
-          {wishlist.map(destination => (
-            <div key={destination._id} className="wishlist-item">
-              <DestinationCard destination={destination} />
-              <button
-                onClick={() => removeFromWishlist(destination._id)}
-                className="remove-btn"
-              >
-                Remove
-              </button>
-            </div>
-          ))}
-        </div>
-      )}
+    <div>
+      <h2>Your Wishlist</h2>
+      <div className="wishlist-grid">
+        {wishlist.map((destination) => (
+          <div key={destination.id} className="destination-card">
+            <img src={destination.image} alt={destination.name} />
+            <h3>{destination.name}</h3>
+            <p>{destination.location}</p>
+          </div>
+        ))}
+      </div>
     </div>
   );
 };

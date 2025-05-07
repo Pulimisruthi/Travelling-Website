@@ -1,0 +1,78 @@
+/* Full page container with background */
+.landing-container {
+    height: 100vh;
+    width: 100%;
+    background-image: url(https://res.cloudinary.com/dhunwvovh/image/upload/v1746170203/friend-travel_gibdjc.jpg);
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    color: white;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+  
+  /* Navbar styling */
+  .landing-navbar {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 40px;
+    background: white;
+  }
+  
+  .landing-logo {
+    font-size: 24px;
+    font-weight: bold;
+    color:orange;
+  }
+  
+  .landing-nav-links a {
+    margin-left: 20px;
+    text-decoration: none;
+    color:orange;
+    font-weight: 500;
+  }
+  
+  .landing-nav-links a:hover {
+    color:rgb(55, 250, 38);
+  }
+  
+  /* Hero content in the center */
+  .landing-hero-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    background: rgba(0, 0, 0, 0.5);
+    padding: 40px;
+    border-radius: 12px;
+    max-width: 600px;
+  }
+  
+  .landing-hero-content h1 {
+    font-size: 48px;
+    margin-bottom: 20px;
+  }
+  
+  .landing-hero-content p {
+    font-size: 18px;
+    margin-bottom: 30px;
+    line-height: 1.5;
+  }
+  
+  /* Login Button */
+  .landing-login-btn {
+    display: inline-block;
+    background-color: #ff9800;
+    padding: 12px 24px;
+    border-radius: 6px;
+    color: white;
+    font-size: 16px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+  }
+  
+  .landing-login-btn:hover {
+    background-color:rgb(31, 243, 41);
+  }
+  

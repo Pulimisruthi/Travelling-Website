@@ -119,7 +119,7 @@
   left: 15px;
   top: 50%;
   transform: translateY(-50%);
-  color: var(--primary-color);
+  color: orange !important;
   font-size: 1.1rem;
 }
 
@@ -160,7 +160,7 @@ input:focus ~ .input-border {
   transform: translateY(-50%);
   background: none;
   border: none;
-  color: var(--primary-color);
+  color: orange !important;
   cursor: pointer;
   font-size: 1.1rem;
 }
@@ -226,14 +226,11 @@ input:focus ~ .input-border {
   transition: color 0.3s;
 }
 
-.forgot-password:hover {
-  color: var(--secondary-color);
-}
+
 
 /* Login Button */
 .login-button {
-  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-  color: white;
+  background: orange;
   border: none;
   padding: 15px;
   border-radius: 10px;
@@ -244,11 +241,12 @@ input:focus ~ .input-border {
   box-shadow: 0 5px 15px rgba(230, 126, 34, 0.4);
   position: relative;
   overflow: hidden;
+  min-width:100% !important;
 }
 
 .login-button:hover {
   transform: translateY(-3px);
-  box-shadow: 0 8px 20px rgba(230, 126, 34, 0.6);
+  box-shadow: 0 8px 20px rgba(236, 121, 20, 0.6);
 }
 
 .login-button:disabled {
@@ -295,46 +293,6 @@ input:focus ~ .input-border {
   margin-left: 10px;
 }
 
-/* Social Login */
-.social-login {
-  display: flex;
-  gap: 15px;
-}
-
-.social-btn {
-  flex: 1;
-  padding: 12px;
-  border-radius: 8px;
-  border: none;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  font-weight: 500;
-  transition: all 0.3s ease;
-}
-
-.social-btn:hover {
-  transform: translateY(-3px);
-}
-
-.social-btn.google {
-  background: white;
-  color: #333;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-}
-
-.social-btn.facebook {
-  background: #3b5998;
-  color: white;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-}
-
-.social-icon {
-  font-size: 1.2rem;
-}
-
 /* Signup Link */
 .signup-link {
   text-align: center;
@@ -343,14 +301,14 @@ input:focus ~ .input-border {
 }
 
 .signup-link a {
-  color: var(--primary-color);
+  color: orange !important;
   text-decoration: none;
   font-weight: 600;
   transition: color 0.3s;
 }
 
 .signup-link a:hover {
-  color: var(--secondary-color);
+  color: rgb(41, 236, 35)!important;
 }
 
 /* Responsive Design */
@@ -361,10 +319,5 @@ input:focus ~ .input-border {
   
   .login-header h1 {
     font-size: 2rem;
-  }
-  
-  .social-login p::before,
-  .social-login p::after {
-    width: 25%;
   }
 }

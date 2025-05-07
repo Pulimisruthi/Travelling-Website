@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './Chat.css';
+import Navbar from '../components/NavBar';
 
 const stateExperts = {
   'Kerala': {
@@ -205,7 +206,9 @@ const ChatSpace = () => {
   };
 
   return (
-    <div className="chat-container">
+    <>
+      <Navbar />
+      <div className="chat-container">
       {/* States Sidebar */}
       <div className="states-sidebar">
         <button className="back-button" onClick={() => navigate('/')}>
@@ -279,6 +282,7 @@ const ChatSpace = () => {
         )}
       </div>
     </div>
+    </>
   );
 };
 

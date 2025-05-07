@@ -101,3 +101,11 @@
     width: 90%;
   }
 }
+.App {
+  font-family: sans-serif;
+  text-align: center;
+}
+
+SVGMap {
+  fill: #2a3;
+}

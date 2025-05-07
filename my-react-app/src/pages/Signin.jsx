@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { FaEye, FaEyeSlash, FaLock, FaEnvelope, FaGoogle, FaFacebook, FaUser } from 'react-icons/fa';
 import './Signin.css';
+import Navbar from '../components/NavBar';
 
 const SignInPage = () => {
   const [formData, setFormData] = useState({
@@ -52,7 +53,9 @@ const SignInPage = () => {
   };
 
   return (
-    <div className="signin-container">
+    <>
+       <Navbar/>
+      <div className="signin-container">
       <div className="signin-background">
         <div className="bg-image bg-1"></div>
         <div className="bg-image bg-2"></div>
@@ -132,25 +135,14 @@ const SignInPage = () => {
             {isLoading ? <div className="spinner"></div> : 'Sign Up'}
           </button>
 
-          <div className="divider">
-            <span>or continue with</span>
-          </div>
-
-          <div className="social-login">
-            <button type="button" className="social-btn google">
-              <FaGoogle className="social-icon" /> Google
-            </button>
-            <button type="button" className="social-btn facebook">
-              <FaFacebook className="social-icon" /> Facebook
-            </button>
-          </div>
-
           <div className="signup-link">
             Have an account? <Link to="/Login">Login</Link>
           </div>
         </form>
       </div>
     </div>
+    </>
+    
   );
 };
 

@@ -9,6 +9,7 @@ import beachImage from '../assets/beach.jpeg';
 import heritageImage from '../assets/heritage.jpeg';
 import wildlifeImage from '../assets/wildlife.jpeg';
 import backwaterImage from '../assets/backwater.jpeg';
+import Navbar from '../components/NavBar';
 
 const Suggestions = () => {
   const navigate = useNavigate();
@@ -59,7 +60,9 @@ const Suggestions = () => {
   ];
 
   return (
-    <div className="destination-suggestions-page">
+    <>
+      <Navbar/>
+      <div className="destination-suggestions-page">
       <header className="suggestions-header">
         <h1>Destination Suggestions</h1>
         <p>Find your perfect trip based on destination types</p>
@@ -94,6 +97,7 @@ const Suggestions = () => {
         </button>
       </div>
     </div>
+    </>
   );
 };
 

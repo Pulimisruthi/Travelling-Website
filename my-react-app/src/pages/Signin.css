@@ -145,6 +145,9 @@
     font-size: 1.1rem;
   }
   
+  .toggle-password:hover{
+    background-color:transparent;
+  }
   /* Signin Options */
   .signin-options {
     display: flex;
@@ -201,7 +204,7 @@
     
   /* Signin Button */
   .signin-button {
-    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    background: orange;
     color: white;
     border: none;
     padding: 15px;
@@ -213,11 +216,12 @@
     box-shadow: 0 5px 15px rgba(230, 126, 34, 0.4);
     position: relative;
     overflow: hidden;
+    width:100%;
   }
   
   .signin-button:hover {
     transform: translateY(-3px);
-    box-shadow: 0 8px 20px rgba(230, 126, 34, 0.6);
+    box-shadow: 0 8px 20px rgba(238, 185, 13, 0.6);
   }
   
   .signin-button:disabled {
@@ -263,46 +267,6 @@
     margin-left: 10px;
   }
   
-  /* Social Login */
-  .social-login {
-    display: flex;
-    gap: 15px;
-  }
-  
-  .social-btn {
-    flex: 1;
-    padding: 12px;
-    border-radius: 8px;
-    border: none;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-    font-weight: 500;
-    transition: all 0.3s ease;
-  }
-  
-  .social-btn:hover {
-    transform: translateY(-3px);
-  }
-  
-  .social-btn.google {
-    background: white;
-    color: #333;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-  }
-  
-  .social-btn.facebook {
-    background: #3b5998;
-    color: white;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-  }
-  
-  .social-icon {
-    font-size: 1.2rem;
-  }
-  
   /* Signup Link */
   .signup-link {
     text-align: center;
@@ -311,14 +275,14 @@
   }
   
   .signup-link a {
-    color: var(--primary-color);
+    color: orange;
     text-decoration: none;
     font-weight: 600;
     transition: color 0.3s;
   }
   
   .signup-link a:hover {
-    color: var(--secondary-color);
+    color: rgb(51, 248, 33) ;
   }
   
   /* Responsive Design */
@@ -329,9 +293,5 @@
     
     .signin-header h1 {
       font-size: 2rem;
-    }
-    
-    .social-login {
-      flex-direction: column;
     }
   }

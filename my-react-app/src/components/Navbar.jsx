@@ -10,12 +10,12 @@ const Navbar = () => {
         {/* Left side */}
         <div className="navbar-left">
           <HamburgerMenu />
-          <a href="/" className="navbar-logo">Incredible India</a>
+          <a href="/home" className="navbar-logo">Incredible India</a>
         </div>
 
         {/* Right side */}
         <div className="navbar-links">
-          <a href="/Wishlist" className='single-link'>Bucket list <FaHeart style={{ color: 'red' }} /></a> {/* ✅ Filled red heart */}
+          <a href="/Wishlist" className='single-link'>Wishlist <FaHeart style={{ color: 'red' }} /></a> {/* ✅ Filled red heart */}
           <a href="/Signin">SignUp </a>
           <a href="/Login">LogIn</a>
           <a href="/Profile">Profile<FaUser style={{ color: 'orange',marginLeft:'10px'}}/></a>

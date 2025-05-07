@@ -10,9 +10,16 @@ const app = express();
 const PORT = 5000;
 
 // Use a fallback secret if process.env.JWT_SECRET is undefined
-const JWT_SECRET = process.env.JWT_SECRET || "myFallbackSecretKey";
+const JWT_SECRET = process.env.JWT_SECRET || "myFallbackSecretKey"; 
 
-console.log("JWT_SECRET is set to:", JWT_SECRET); // Debug: Check that the secret is loaded
+app.use(cors({
+  origin: 'http://localhost:5173', 
+  credentials: true
+}));
+
+app.use(express.json());
+
+console.log("JWT_SECRET is set to:", JWT_SECRET); 
 
 // Connect to MongoDB
 mongoose
@@ -23,9 +30,20 @@ mongoose
   .then(() => console.log("MongoDB connected"))
   .catch(err => console.error("MongoDB connection error:", err));
 
-// Middlewares
-app.use(cors({ origin: "http://localhost:5174", credentials: true }));
-app.use(express.json());
+
+// Auth Middleware
+const authMiddleware = async (req, res, next) => {
+  const token = req.header('Authorization')?.replace('Bearer ', '');
+  if (!token) return res.status(401).json({ message: 'No token, auth denied' });
+
+  try {
+    const decoded = jwt.verify(token, JWT_SECRET);
+    req.user = await User.findById(decoded.userId);
+    next();
+  } catch {
+    res.status(401).json({ message: 'Invalid token' });
+  }
+};
 
 // Define the user schema and model
 const userSchema = new mongoose.Schema({
@@ -39,6 +57,21 @@ const userSchema = new mongoose.Schema({
 });
 
 const User = mongoose.model('User', userSchema);
+
+//Wishlist schema
+const wishlistSchema = new mongoose.Schema({
+  userId: { type: mongoose.Schema.Types.ObjectId, required: true, ref: 'User' },
+  destinations: [
+    {
+      id: Number,
+      name: String,
+      location: String,
+      image: String,
+    },
+  ],
+});
+
+const Wishlist = mongoose.model('Wishlist', wishlistSchema);
 
 // Signup Route – saving email in lowercase
 app.post('/api/signup', async (req, res) => {
@@ -116,5 +149,40 @@ app.get('/api/user/:id', async (req, res) => {
     res.status(500).json({ message: "Error fetching user", error: err.message });
   }
 });
+
+// Add destination to wishlist
+app.post('/add', authMiddleware, async (req, res) => {
+  const { destination } = req.body;
+  try {
+    const wishlist = await Wishlist.findOne({ userId: req.user.id });
+
+    if (wishlist) {
+      // Check if the destination already exists in the wishlist
+      const isAlreadyAdded = wishlist.destinations.some(
+        (item) => item.id === destination.id
+      );
+      if (isAlreadyAdded) {
+        return res.status(400).json({ message: 'Destination already in wishlist.' });
+      }
+
+      // Add new destination to the wishlist
+      wishlist.destinations.push(destination);
+      await wishlist.save();
+    } else {
+      // If no wishlist exists for the user, create a new one
+      await Wishlist.create({
+        userId: req.user.id,
+        destinations: [destination],
+      });
+    }
+    res.status(200).json({ message: 'Destination added to wishlist!' });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: 'Server error.' });
+  }
+});
+
+
+
 
 app.listen(PORT, () => console.log(`Server running on http://localhost:${PORT}`));

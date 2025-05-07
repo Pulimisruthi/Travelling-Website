@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import './Weather.css';
+import Navbar from '../components/NavBar';
 
 const API_KEY = '2303c3154cf4eb2bb5e58ed07db1da21'; // Replace with your OpenWeather API key
 
@@ -90,7 +91,9 @@ const Weather = () => {
   };
 
   return (
-    <div className="app-container">
+    <>
+      <Navbar />
+      <div className="app-container">
       <h1>Weather Updates</h1>
       
 
@@ -141,6 +144,7 @@ const Weather = () => {
         )}
       </div>
     </div>
+    </>
   );
 };
 

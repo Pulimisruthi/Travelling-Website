@@ -8,7 +8,8 @@ import familyImage from '../assets/family-travel.jpg';
 import soloImage from '../assets/solo-travel.jpg';
 import coupleImage from '../assets/couple-travel.jpeg';
 import groupImage from '../assets/group-travel.jpeg';
-import businessImage from '../assets/business-travel.jpg';
+import businessImage from '../assets/business-travel.jpg'; 
+import Navbar from '../components/NavBar';
 
 const CompanionSuggestions = () => {
   const navigate = useNavigate();
@@ -65,7 +66,9 @@ const CompanionSuggestions = () => {
   ];
 
   return (
-    <div className="companion-suggestions-page">
+    <>
+      <Navbar />
+      <div className="companion-suggestions-page">
       <header className="suggestions-header">
         <h1>Travel Companion Suggestions</h1>
         <p>Find destinations perfect for your travel companions</p>
@@ -117,6 +120,7 @@ const CompanionSuggestions = () => {
         </button>
       </div>
     </div>
+    </>
   );
 };
 

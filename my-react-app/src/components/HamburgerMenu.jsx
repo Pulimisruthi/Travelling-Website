@@ -23,8 +23,7 @@ const HamburgerMenu = () => {
         <div className="menu-options">
           <a href="/Chat"><FaComments />  <table>Guide</table></a>
           <a href="/Weather"><FaCloudSun /> Weather</a>
-          <a href="/MapView"><FaMapMarkedAlt /> Maps</a>
-          <a href="/Wishlist"><FaRegHeart /> Bucket List</a>
+          <a href="/Wishlist"><FaRegHeart /> WishList</a>
         </div>
       )}
     </div>

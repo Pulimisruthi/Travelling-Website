@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './Calculator.css';
+import Navbar from '../components/NavBar';
 
 const Calculator = () => {
   const [input, setInput] = useState('');
@@ -60,22 +61,20 @@ const Calculator = () => {
   ];
 
   return (
-    <div className="calc-page-container">
+    <> 
+      <Navbar />
+      <div className="calc-page-container">
       <div className="calc-content-wrapper">
         <div className="calc-info-section">
-          <h1 className="calc-main-heading">Advanced React Calculator</h1>
+          <h1 className="calc-main-heading">Calculator</h1>
           <p className="calc-description">
-            Experience the power of modern web technology with this feature-rich calculator built using React.
-            Perform all basic arithmetic operations with ease and enjoy the smooth animations.
+            Through this calculator you can calculate the budget of your trip and plan your trip according to your budget. 
           </p>
           <div className="calc-features">
             <h2 className="calc-feature-heading">Key Features:</h2>
             <ul className="calc-feature-list">
               <li>Keyboard and click input support</li>
               <li>Real-time calculation</li>
-              <li>Beautiful animations and transitions</li>
-              <li>Responsive design for all devices</li>
-              <li>Error handling for invalid expressions</li>
             </ul>
           </div>
         </div>
@@ -106,6 +105,7 @@ const Calculator = () => {
         </div>
       </div>
     </div>
+    </>
   );
 };
 
